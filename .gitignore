@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+.env
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Build
+build/
+dist/
+
+# VSCode
+.vscode/
