@@ -82,16 +82,6 @@ Then open: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 📸 Screenshots
-
-*Add your screenshots here*
-```
-📂 /screenshots/main.png
-📂 /screenshots/dashboard.png
-```
-
----
-
 ## 🔗 Live Demo (soon)
 
 - [Frontend on Vercel](#)
