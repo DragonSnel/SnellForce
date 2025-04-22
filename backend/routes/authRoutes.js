@@ -1,41 +1,46 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const pool = require("../config/db");
-require("dotenv").config();
-
+const pool = require("../db");
 const router = express.Router();
 
-// Регистрация пользователя
+const JWT_SECRET = process.env.JWT_SECRET || "supersecretkey";
+
+// Register route
 router.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const { email, password } = req.body;
 
   try {
+    const hashedPassword = await bcrypt.hash(password, 10);
     const result = await pool.query(
-      "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email",
-      [username, email, hashedPassword]
+      "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email",
+      [email, hashedPassword]
     );
     res.status(201).json(result.rows[0]);
-  } catch (error) {
-    res.status(500).json({ error: "Ошибка при регистрации" });
+  } catch (err) {
+    console.error("❌ Registration error:", err);
+    res.status(500).json({ message: "Registration failed" });
   }
 });
 
-// Авторизация пользователя
+// Login route
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
   try {
-    const user = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-    if (user.rows.length === 0) return res.status(400).json({ error: "Неверные данные" });
+    const userResult = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+    const user = userResult.rows[0];
 
-    const isValid = await bcrypt.compare(password, user.rows[0].password);
-    if (!isValid) return res.status(400).json({ error: "Неверные данные" });
+    if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
-    const token = jwt.sign({ id: user.rows[0].id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-    res.json({ token, user: { id: user.rows[0].id, username: user.rows[0].username, email: user.rows[0].email } });
-  } catch (error) {
-    res.status(500).json({ error: "Ошибка входа" });
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+
+    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1h" });
+    res.json({ token, user: { id: user.id, email: user.email } });
+  } catch (err) {
+    console.error("❌ Login error:", err);
+    res.status(500).json({ message: "Login failed" });
   }
 });
 

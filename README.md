@@ -1,76 +1,77 @@
+# 📋 SnellForce — Task Manager (SaaS in Progress)
 
-# 🚀 SnellForce
+**SnellForce** is a beautifully designed task management application built with a modern stack — **React**, **Express**, and **PostgreSQL**. It offers a simple yet powerful way to manage tasks with soft-deletion support and is actively being developed into a full **SaaS platform**.
 
-SnellForce is a full-stack SaaS starter project that combines a modern React frontend with a powerful Express + PostgreSQL backend. Built for speed, clarity, and real-world deployment — includes JWT auth, protected routes, dynamic task system, and scalable architecture.
+> ⚠️ **Note**: This project is in active development. New features will be added soon.
+
+---
+
+## 🌌 Interface Preview
+
+### ➕ Create & View Tasks
+![Task View](.screenshots/task-view.png)
+
+### 🗑 Trash Bin
+![Trash View](.screenshots/trash-view.png)
+
+---
+
+## ✨ Features
+
+- 📄 Add tasks with a title and description  
+- 📋 See your current task list  
+- 🗑 Delete tasks (soft delete — moved to trash)  
+- ♻️ Restore tasks or ❌ permanently delete from trash  
+- 🎨 Dark modern UI inspired by productivity tools  
+- ⚙️ Built for future SaaS integrations
 
 ---
 
 ## ⚙️ Tech Stack
 
-**Frontend**:
-- React
-- Vite
-- Tailwind CSS (optional)
-- Axios
-- Framer Motion
-
-**Backend**:
-- Node.js
-- Express.js
-- PostgreSQL
-- JWT (authentication)
-- dotenv
-- bcryptjs
-
-**DevOps / Deploy**:
-- Railway (backend)
-- Vercel (frontend)
-- Git & GitHub
+| Layer     | Technology             |
+|-----------|------------------------|
+| Frontend  | React, CSS             |
+| Backend   | Node.js, Express       |
+| Database  | PostgreSQL (Railway)   |
+| Hosting   | Railway, GitHub        |
 
 ---
 
-## 📁 Project Structure
+## 📦 Folder Structure
 
 ```
 SnellForce/
+│
 ├── backend/
-│   ├── config/
 │   ├── routes/
+│   ├── config/
+│   ├── .env
 │   ├── server.js
-│   └── .env
+│
 ├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.js / App.css
 │   ├── public/
-│   └── src/
-├── .gitignore
+│
 └── README.md
 ```
 
 ---
 
-## 🛠 Setup Instructions
+## ⚙️ Setup Guide
 
-### 📦 Backend
+### 🔧 Backend Setup
 
 ```bash
 cd backend
 npm install
+cp .env.example .env  # fill in with your DB credentials
 npm run dev
 ```
 
-**Environment (.env):**
-
-```
-DB_USER=postgres
-DB_HOST=your_host
-DB_NAME=your_db
-DB_PASS=your_password
-DB_PORT=5432
-JWT_SECRET=your_secret
-```
-
----
-
-### 🌐 Frontend
+### 🌐 Frontend Setup
 
 ```bash
 cd frontend
@@ -78,23 +79,41 @@ npm install
 npm start
 ```
 
-Then open: [http://localhost:3000](http://localhost:3000)
+> Make sure you have a PostgreSQL DB running and the following tables created:
+> `tasks`, `deleted_tasks`, and `users`.
 
 ---
 
-## 🔗 Live Demo (soon)
+## 🧠 Planned Features
 
-- [Frontend on Vercel](#)
-- [Backend on Railway](#)
+SnellForce is being actively developed as a **SaaS product**. Upcoming features include:
+
+- 🔐 User authentication and account system
+- ⏰ Due dates, reminders, and task priority
+- 🧾 Tags and filters
+- 📊 Analytics dashboard
+- 👥 Team collaboration & shared boards
+- 💳 Subscription plans and billing
+- 📁 Project folders and custom workspaces
+- 🌐 Internationalization support (i18n)
 
 ---
 
-## 👤 Author
+## 🤝 Contact Me
 
-**Artem Tkachev Ruslanovich**  
-GitHub: [@DragonSnel](https://github.com/DragonSnel)  
-Telegram: [@ArtemTkachov](https://t.me/ArtemTkachov)
+If you'd like to contribute, ask questions, or just say hi:
+
+- **Telegram**: [@ArtemTkachov](https://t.me/ArtemTkachov)  
+- **Discord**: `dragonsnel`  
+- **Email**: [artem116tkachov380@gmail.com](mailto:artem116tkachov380@gmail.com)
 
 ---
 
-> This project is part of the AI SaaS platform initiative: SnellForce ✨
+## 🛡 License
+
+This project is licensed under the MIT License.  
+Feel free to fork, clone, and use — just don’t forget to give credit.
+
+---
+
+> Made with 💙 by **Artem Tkachov** | SnellForce © 2025
