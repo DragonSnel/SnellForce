@@ -4,6 +4,18 @@
 
 > ⚠️ **Note**: This project is in active development. New features will be added soon.
 
+---
+
+## 🌌 Interface Preview
+
+### ➕ Create & View Tasks
+![Task View](./screenshots/main.png)
+
+### 🗑 Trash Bin
+![Trash View](./screenshots/trash.png)
+
+---
+
 ## ✨ Features
 
 - 📄 Add tasks with a title and description  
