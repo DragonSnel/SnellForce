@@ -4,18 +4,6 @@
 
 > ⚠️ **Note**: This project is in active development. New features will be added soon.
 
----
-
-## 🌌 Interface Preview
-
-### ➕ Create & View Tasks
-![Task View](.screenshots/task-view.png)
-
-### 🗑 Trash Bin
-![Trash View](.screenshots/trash-view.png)
-
----
-
 ## ✨ Features
 
 - 📄 Add tasks with a title and description  
@@ -105,7 +93,6 @@ If you'd like to contribute, ask questions, or just say hi:
 
 - **Telegram**: [@ArtemTkachov](https://t.me/ArtemTkachov)  
 - **Discord**: `dragonsnel`  
-- **Email**: [artem116tkachov380@gmail.com](mailto:artem116tkachov380@gmail.com)
 
 ---
 
@@ -116,4 +103,4 @@ Feel free to fork, clone, and use — just don’t forget to give credit.
 
 ---
 
-> Made with 💙 by **Artem Tkachov** | SnellForce © 2025
+> Made with 💙 by **Artem Tkachov (DragonSnel)** | SnellForce © 2025
